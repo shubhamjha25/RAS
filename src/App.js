@@ -1,11 +1,12 @@
 import './App.css';
+import Main from './components/Main';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>RAS</h1>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Main />
+        </div>
+    );
 }
 
 export default App;
