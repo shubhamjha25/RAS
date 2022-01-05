@@ -14,7 +14,6 @@ const ManageItems = () => {
 
     const getItems = async () => {
         const res = await axios.get('https://ras-api-server.herokuapp.com/api/items');
-        console.log(res.data)
         setItems(res.data);
     }
 
@@ -52,7 +51,7 @@ const ManageItems = () => {
                                 <br />
                                 <h4>INR <strong>{item.price}</strong></h4><br />
                                 <div className='item-btn-container'>
-                                    <a className='item-btn-edit'>EDIT</a>
+                                    <Link to={`/admin/items/edit/${item._id}`} className='item-btn-edit'>EDIT</Link>
                                     <a className='item-btn-dlt' onClick={() => deleteItem(item._id)}>DELETE</a>
                                 </div>
                             </div>

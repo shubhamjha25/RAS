@@ -11,6 +11,7 @@ import GenerateReport from './components/GenerateReport';
 import ViewOrders from './components/ViewOrders';
 import ManageItems from './components/ManageItems';
 import AddMenuItems from './components/AddMenuItems';
+import EditItem from './components/EditMenuItem';
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/admin/orders" element={<ViewOrders />} />
                 <Route path="/admin/items" element={<ManageItems />} />
                 <Route path="/admin/items/add" element={<AddMenuItems />} />
+                <Route path="/admin/items/edit/:id" element={<EditItem />} />
                 <Route path="/authError" element={<AuthError />} />
             </Routes>
         </div>
