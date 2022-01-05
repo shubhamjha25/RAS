@@ -86,7 +86,7 @@ a {
     padding: 5px;
 }
 
-/* Aadmin Home Page */
+/* Admin Home Page */
 .admin-cards-container {
     display: grid;
     grid-template-columns: 1fr 1fr ;
@@ -111,4 +111,29 @@ a {
     border-radius: 10px;
     color: white;
     border: 1.5px solid black;
+}
+
+/*Get Users Table*/
+.get-users-container {
+    width: 90%;
+    max-width: 768px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.list-of-users {
+    border: 2px solid forestgreen;
+    width: 600px;
+    height: 110px;
+  }
+    
+.user-table-heading {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.user-table-values {
+    text-align: center;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
 }
