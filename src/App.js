@@ -4,7 +4,7 @@ import Main from './components/Main';
 import CustomerPage from './components/CustomerPage';
 import AdminPage from './components/AdminPage';
 import Home from './components/Home';
-import AdminHome from './components/AdminHome.';
+import AdminHome from './components/AdminHome';
 
 function App() {
     return (
