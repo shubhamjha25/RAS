@@ -85,3 +85,30 @@ a {
     margin: 0 35px;
     padding: 5px;
 }
+
+/* Aadmin Home Page */
+.admin-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-column-gap: 35px;
+    grid-row-gap: 40px;
+}
+
+.admin-card {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.admin-card-img {
+    width: 100px;
+}
+
+.admin-logout-btn {
+    padding: 10px;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    border: 1.5px solid black;
+}
