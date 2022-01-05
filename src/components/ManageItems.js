@@ -21,6 +21,19 @@ const ManageItems = () => {
         getItems();
     }, []);
 
+    const deleteItem = async (id) =>{
+        try {
+            if(token){
+                await axios.delete(`https://ras-api-server.herokuapp.com/api/items/${id}`, {
+                    headers: {token: token}
+                });
+                getItems();
+            }
+        } catch (error) {
+            window.location.href = "/admin";
+        }
+    }
+
 
     return (
         <div className='manage-items-page'>
@@ -38,7 +51,7 @@ const ManageItems = () => {
                                 <h4>INR <strong>{item.price}</strong></h4><br />
                                 <div className='item-btn-container'>
                                     <a className='item-btn-edit'>EDIT</a>
-                                    <a className='item-btn-dlt'>DELETE</a>
+                                    <a className='item-btn-dlt' onClick={() => deleteItem(item._id)}>DELETE</a>
                                 </div>
                             </div>
                         );
