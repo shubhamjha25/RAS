@@ -148,7 +148,7 @@ a {
 /* Get Order Table */
 .get-orders-container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1296px;
     margin: 0 auto;
     margin-top: 25px;
 }
@@ -168,4 +168,63 @@ a {
     text-align: center;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
+}
+
+/* itenms page */
+.manage-items-page {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.menu-items-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+}
+
+.item-card {
+    padding: 20px 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.item-card-img {
+    width: 200px !important;
+    height: 225px !important;
+}
+
+.item-btn-container {
+    justify-content: space-around !important;
+    display: flex !important;
+}
+
+.item-btn-edit {
+    background: lightgreen;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 9px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.item-btn-dlt {
+    background: red;
+    color: white;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 9px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 8px;
 }
