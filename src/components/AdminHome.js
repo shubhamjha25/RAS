@@ -38,10 +38,10 @@ const AdminHome = () => {
             <br /><br/>
 
             <div className='admin-cards-container'>
-                <AdminCard img="https://icons-for-free.com/iconfiles/png/512/users+icon-1320186917379515742.png" actionName="Get Users" />
-                <AdminCard img="https://www.nicepng.com/png/detail/263-2632565_open-healthy-food-icon-png.png" actionName="Manage Items" />
-                <AdminCard img="https://cdn-icons-png.flaticon.com/128/3496/3496155.png" actionName="View Orders" />
-                <AdminCard img="https://www.arbox.com/wp-content/uploads/2018/11/report-icon.png" actionName="Generate Report" />
+                <Link to="/admin/users"><AdminCard img="https://icons-for-free.com/iconfiles/png/512/users+icon-1320186917379515742.png" actionName="Get Users" /></Link>
+                <Link to="/admin/items"><AdminCard img="https://www.nicepng.com/png/detail/263-2632565_open-healthy-food-icon-png.png" actionName="Manage Items" /></Link>
+                <Link to="/admin/orders"><AdminCard img="https://cdn-icons-png.flaticon.com/128/3496/3496155.png" actionName="View Orders" /></Link>
+                <Link to="/admin/report"><AdminCard img="https://static.thenounproject.com/png/48895-200.png" actionName="Generate Report" /></Link>
             </div>
 
             <br /><br />

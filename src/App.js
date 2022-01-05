@@ -5,6 +5,11 @@ import CustomerPage from './components/CustomerPage';
 import AdminPage from './components/AdminPage';
 import Home from './components/Home';
 import AdminHome from './components/AdminHome';
+import AuthError from './components/AuthError';
+import GetUsers from './components/GetUsers';
+import GenerateReport from './components/GenerateReport';
+import ViewOrders from './components/ViewOrders';
+import ManageItems from './components/ManageItems';
 
 function App() {
     return (
@@ -15,6 +20,11 @@ function App() {
                 <Route path="/customer/home" element={<Home />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin/home" element={<AdminHome />} />
+                <Route path="/admin/users" element={<GetUsers />} />
+                <Route path="/admin/report" element={<GenerateReport />} />
+                <Route path="/admin/orders" element={<ViewOrders />} />
+                <Route path="/admin/items" element={<ManageItems />} />
+                <Route path="/authError" element={<AuthError />} />
             </Routes>
         </div>
     );
