@@ -137,3 +137,35 @@ a {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
 }
+
+.reports-page {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+/* Get Order Table */
+.get-orders-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.list-of-orders {
+    border: 2px solid forestgreen;
+    width: 950px;
+    height: 110px;
+  }
+    
+.order-table-heading {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.order-table-values {
+    text-align: center;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
