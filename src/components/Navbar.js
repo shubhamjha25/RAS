@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
 
-    
+    const logoutSubmit = () => {
+        localStorage.clear();
+    }
 
     var isAuth = false;
     var token = localStorage.getItem('tokenStore');
@@ -31,7 +33,7 @@ function Navbar() {
                     <li><Link to="/home" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Home</Link></li>
                     <li><Link to="/" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Your Orders</Link></li>
                     <li><Link to="/" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Cart</Link></li>
-                    <li className="nav-link"><Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Logout</Link></li>
+                    <li className="nav-link" onClick={logoutSubmit}><Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Logout</Link></li>
                 </>         
             </ul>
         </section>
