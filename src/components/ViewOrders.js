@@ -12,13 +12,6 @@ const ViewOrders = () => {
     if(token)
         isAuth = true;
 
-    /*const getUserWhoOrdered = async userId => {
-        const res = await axios.get(`https://ras-api-server.herokuapp.com/api/users/find/${userId}`,
-            {headers: {token: token}}, 
-            );
-        console.log(res.data.username);
-    } */
-
     const getOrders = async () => {
         const res = await axios.get('https://ras-api-server.herokuapp.com/api/orders/',
             {headers: {token: token}}, 
@@ -26,7 +19,7 @@ const ViewOrders = () => {
         setOrders(res.data);
         setTotalOrder(res.data.length);
     }
-    
+
     useEffect(() => {
         getOrders();
     }, []);
@@ -51,7 +44,7 @@ const ViewOrders = () => {
                         <tr>
                             <td className='order-table-values'>{key+1}</td>
                             <td className='order-table-values'>{order._id}</td>
-                            <td className='order-table-values'>{order.userId}</td>
+                            <td className='order-table-values'>{order.username}</td>
                             <td className='order-table-values'>{order.createdAt}</td>
                             <td className='order-table-values'>{order.amount}</td>
                             <td className='order-table-values'>{order.status}</td>
