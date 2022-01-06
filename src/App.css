@@ -1,3 +1,87 @@
+/*NAVBAR CSS*/
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 8px 6px -6px #999;;
+}
+
+.ras-brand {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.navbar .nav-list {
+    color: black !important;
+    display: flex;
+}
+
+.navbar .nav-list li {
+    text-decoration: none;
+    list-style: none;
+    margin-right: 30px;
+    font-size: 1.4rem;
+    padding: 3px 10px;
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+
+.nav-link:hover {
+    color: #013220 !important;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #1F3D0C;
+    font-weight: 900;
+}
+
+.current-user-info {
+    border: 1.5px solid gray;
+    border-radius: 50px;
+    background-color: white;
+    padding: 4px 12px !important;
+    margin-right: 100px !important;
+}
+
+@media(max-width: 426px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .blogify-logo {
+        width: 280px;
+    }
+
+    .navbar .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        margin-bottom: 8px;
+    }
+
+    .current-user-info {
+        border: 1px solid gray;
+        border-radius: 50px;
+        background-color: whitesmoke;
+        padding: 8px 8px !important;
+        margin-right: 2px !important;
+    }
+}
+
+@media(max-width: 321px) {
+    .current-user-info {
+        border: 1px solid gray;
+        font-size: 18px !important;
+        border-radius: 50px;
+        background-color: whitesmoke;
+        padding: 10px 15px !important;
+        margin-right: 2px !important;
+    }
+}
+/**/
+
 .main {
     width: 90%;
     max-width: 768px;
@@ -149,6 +233,13 @@ a {
 .get-orders-container {
     width: 90%;
     max-width: 1296px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.customer-home-container {
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
     margin-top: 25px;
 }
