@@ -3,7 +3,7 @@ import {Route, Routes} from 'react-router-dom';
 import Main from './components/Main';
 import CustomerPage from './components/CustomerPage';
 import AdminPage from './components/AdminPage';
-import Home from './components/Home';
+import CustomerHome from './components/CustomerHome';
 import AdminHome from './components/AdminHome';
 import AuthError from './components/AuthError';
 import GetUsers from './components/GetUsers';
@@ -12,14 +12,17 @@ import ViewOrders from './components/ViewOrders';
 import ManageItems from './components/ManageItems';
 import AddMenuItems from './components/AddMenuItems';
 import EditItem from './components/EditMenuItem';
+import CustomerLogin from './components/CustomerLogin';
+import CustomerRegister from './components/CustomerRegister';
 
 function App() {
     return (
         <div className="App">
             <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="/customer" element={<CustomerPage />} />
-                <Route path="/customer/home" element={<Home />} />
+                <Route path="/customer/login" element={<CustomerLogin />} />
+                <Route path="/customer/register" element={<CustomerRegister />} />
+                <Route path="/customer/home" element={<CustomerHome />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin/home" element={<AdminHome />} />
                 <Route path="/admin/users" element={<GetUsers />} />

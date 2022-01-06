@@ -19,7 +19,7 @@ const Main = () => {
             <h3>(Select User Type)</h3>
             <br /> <br />
             <div className='main-card-container'>
-                <Link to="/customer"><Card userType="Customer" img="https://cdn3.iconfinder.com/data/icons/business-finance-line-5/32/client-2-512.png" /></Link>
+                <Link to="/customer/login"><Card userType="Customer" img="https://cdn3.iconfinder.com/data/icons/business-finance-line-5/32/client-2-512.png" /></Link>
                 <Link to="/admin"><Card userType="Admin" img="https://cdn2.iconfinder.com/data/icons/mobile-banking-ver-1a/100/1-11-512.png" /></Link>
             </div>
         </div>
