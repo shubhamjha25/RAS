@@ -170,7 +170,24 @@ a {
     border-right: 1px solid black;
 }
 
-/* itenms page */
+/**/
+.customer-auth-btn {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 7px 20px;
+    border: 1.75px solid darkgreen;
+    border-radius: 14px;
+    background: #04AA6D;
+    color: whitesmoke;
+    transition: .2s ease-in-out;
+}
+
+.customer-auth-btn:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+/* items page */
 .manage-items-page {
     width: 90%;
     max-width: 1000px;
