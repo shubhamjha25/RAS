@@ -30,9 +30,9 @@ function Navbar() {
             <ul className="nav-list">         
                 <>
                     <li className="current-user-info">Welcome, <strong>{username}</strong></li>
-                    <li><Link to="/home" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Home</Link></li>
-                    <li><Link to="/" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Your Orders</Link></li>
-                    <li><Link to="/" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Cart</Link></li>
+                    <li><Link to="/customer/home" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Home</Link></li>
+                    <li><Link to="/customer/cart" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Cart</Link></li>
+                    <li><Link to="/customer/orders" className="nav-link" style={{ textDecoration: 'none', color: 'black' }}>Your Orders</Link></li>
                     <li className="nav-link" onClick={logoutSubmit}><Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Logout</Link></li>
                 </>         
             </ul>

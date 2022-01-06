@@ -14,6 +14,8 @@ import AddMenuItems from './components/AddMenuItems';
 import EditItem from './components/EditMenuItem';
 import CustomerLogin from './components/CustomerLogin';
 import CustomerRegister from './components/CustomerRegister';
+import CustomerOrders from './components/CustomerOrders';
+import CustomerCart from './components/CustomerCart';
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
                 <Route path="/customer/login" element={<CustomerLogin />} />
                 <Route path="/customer/register" element={<CustomerRegister />} />
                 <Route path="/customer/home" element={<CustomerHome />} />
+                <Route path="/customer/orders" element={<CustomerOrders />} />
+                <Route path="/customer/cart" element={<CustomerCart />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin/home" element={<AdminHome />} />
                 <Route path="/admin/users" element={<GetUsers />} />
