@@ -106,7 +106,7 @@ const CustomerCart = () => {
                 {
                     genPayment
                         ?
-                            <Payment token={token} userId={userId} username={username} items={cart.items} amount={totalAmount} />
+                            <Payment token={token} userId={userId} username={username} cartId={cart._id} items={cart.items} amount={totalAmount} />
                         :
                             <></>
                 }

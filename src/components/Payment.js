@@ -9,6 +9,18 @@ const Payment = (props) => {
 
     const navigate = useNavigate();
 
+    const deleteCart = async id => {
+        try {
+            if(props.token){
+                await axios.delete(`https://ras-api-server.herokuapp.com/api/carts/${id}`, {
+                    headers: {token: props.token}
+                });
+            }
+        } catch (error) {
+            window.location.href = "/customer/home";
+        }
+    }
+
     const generateOrder = async () => {   
         const orderBody = {
             userId: props.userId,
@@ -18,6 +30,7 @@ const Payment = (props) => {
         }
         const res = await axios.post('https://ras-api-server.herokuapp.com/api/orders/', orderBody, {headers: {token: props.token}});
         console.log('NEW ORDER ID : ', res.data._id);
+        deleteCart(props.cartId);
         navigate('../customer/orderSuccess')
     }
 
