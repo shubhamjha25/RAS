@@ -432,3 +432,31 @@ label {
       margin-top: 0;
     }
   }
+
+/*CART*/
+.cart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-items-container {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cart-img {
+    height: 160px !important;
+    width: 180px;
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.list-of-cart {
+    border: 2px solid forestgreen;
+    width: 750px;
+    height: 110px;
+  }
