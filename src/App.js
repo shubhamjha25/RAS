@@ -17,6 +17,7 @@ import CustomerRegister from './components/CustomerRegister';
 import CustomerOrders from './components/CustomerOrders';
 import CustomerCart from './components/CustomerCart';
 import Payment from './components/Payment';
+import OrderSuccess from './components/OrderSuccess';
 
 function App() {
     return (
@@ -28,7 +29,7 @@ function App() {
                 <Route path="/customer/home" element={<CustomerHome />} />
                 <Route path="/customer/orders" element={<CustomerOrders />} />
                 <Route path="/customer/cart" element={<CustomerCart />} />
-                <Route path="/customer/checkout" element={<Payment />} />
+                <Route path="/customer/orderSuccess" element={<OrderSuccess />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin/home" element={<AdminHome />} />
                 <Route path="/admin/users" element={<GetUsers />} />
