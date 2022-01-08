@@ -3,6 +3,7 @@ import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import "../App.css";
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 
 const CustomerCart = () => {
 
@@ -80,8 +81,8 @@ const CustomerCart = () => {
                                             <h1>ORDER SUMMARY</h1><hr /><br />
                                             <h3>Subtotal: {totalAmount}</h3>
                                             <h3>Other Taxes: 50</h3><br />
-                                            <h3>Order Total: {totalAmount}</h3><br />
-                                            <a>Checkout Now 👉🏻</a>
+                                            <h3>Order Total: INR {totalAmount}</h3><br /><br />
+                                            <Link to='/customer/checkout' className='checkout-btn'>Proceed To Checkout 👉🏻</Link>
                                         </div>
                                     </div>
                                 :
