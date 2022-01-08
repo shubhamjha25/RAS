@@ -23,7 +23,13 @@ const CustomerCart = () => {
             {headers: {token: token}}
         );
         setCart(res.data);
-        
+        if(res.data) {
+            var amt = 0;
+            for(let i=0; i<res.data.items.length; i++) {
+                amt += res.data.items[i].price*res.data.items[i].quantity;
+            }
+            setTotalAmount(totalAmount => totalAmount + amt);
+        }
     }
 
     useEffect(() => { 
