@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import "../App.css";
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import Payment from './Payment';
 
 const CustomerCart = () => {
 
@@ -13,7 +14,13 @@ const CustomerCart = () => {
         isAuth = true;
         var decoded = jwt_decode(token);
         var userId = decoded.id;
+        var username = decoded.name
     }
+
+    const [genPayment, setGenPayment] = useState(false);
+    const PROCEED = 'Proceed To Checkout 👉🏻';
+    const BACK = 'Go Back';
+    const [checkoutBtn, setCheckOutBtn] = useState('Proceed To Checkout 👉🏻')
 
     const [totalAmount, setTotalAmount] = useState(50);
 
@@ -79,10 +86,14 @@ const CustomerCart = () => {
                                         }
                                         <div className='order-summary'>
                                             <h1>ORDER SUMMARY</h1><hr /><br />
-                                            <h3>Subtotal: {totalAmount}</h3>
+                                            <h3>Subtotal: {totalAmount - 50}</h3>
                                             <h3>Other Taxes: 50</h3><br />
                                             <h3>Order Total: INR {totalAmount}</h3><br /><br />
-                                            <Link to='/customer/checkout' className='checkout-btn'>Proceed To Checkout 👉🏻</Link>
+                                            <a onClick={() => setGenPayment(!genPayment)} className='checkout-btn'>
+                                                {
+                                                    genPayment ? BACK : PROCEED 
+                                                }
+                                            </a>
                                         </div>
                                     </div>
                                 :
@@ -91,6 +102,13 @@ const CustomerCart = () => {
                             </div>
                         :
                             <h1>No Items Added in The Cart</h1>
+                }
+                {
+                    genPayment
+                        ?
+                            <Payment token={token} userId={userId} username={username} items={cart.items} amount={totalAmount} />
+                        :
+                            <></>
                 }
             </div>
         </>

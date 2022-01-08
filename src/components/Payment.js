@@ -2,30 +2,37 @@ import React from "react";
 import { useNavigate } from "react-router";
 import StripeCheckout from 'react-stripe-checkout';
 import Navbar from "./Navbar";
+import CustomerHome from './CustomerHome'
+import axios from "axios";
 
-const Payment = () => {
+const Payment = (props) => {
 
     const navigate = useNavigate();
 
-    const onToken = (token) => {
-        console.log("STRIPE TOKEN = ", token);
-        navigate('../customer/orders');
+    const generateOrder = async () => {   
+        const orderBody = {
+            userId: props.userId,
+            username: props.username,
+            items: props.items,
+            amount: props.amount
+        }
+        const res = await axios.post('https://ras-api-server.herokuapp.com/api/orders/', orderBody, {headers: {token: props.token}});
+        console.log('NEW ORDER ID : ', res.data._id);
+        navigate('../customer/orderSuccess')
     }
 
-    const handleCashClick = () => {
-        return (
-            navigate('../customer/orders')
-        );
+    const onToken = (token) => {
+        console.log("STRIPE TOKEN = ", token);
+        generateOrder();
     }
 
     return (
         <>
-            <Navbar />
-            <div className="customer-home-container">
+            <div>
                 <h1>MAKE PAYMENT</h1><br />
                 <h2>(Select Payment Type)</h2><br />
                 <button 
-                    onClick={handleCashClick} 
+                    onClick={generateOrder} 
                     style={{border: 'none', width: 120, borderRadius: 5, padding: "20px", marginRight: '20px', backgroundColor: "black", color: "white", cursor: 'pointer'}}>
                         CASH
                 </button>
@@ -37,6 +44,7 @@ const Payment = () => {
                         style={{border: 'none', width: 120, borderRadius: 5, padding: "20px", backgroundColor: "black", color: "white", cursor: 'pointer'}}>
                             CARD
                     </button>
+                    <br /><br />
                 </StripeCheckout>
             </div>
             
