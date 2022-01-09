@@ -173,7 +173,7 @@ a {
 /* Admin Home Page */
 .admin-cards-container {
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     grid-column-gap: 35px;
     grid-row-gap: 40px;
 }
@@ -227,6 +227,26 @@ a {
     max-width: 1000px;
     margin: 0 auto;
     margin-top: 25px;
+}
+
+.positive-sales {
+    border: 1.5px solid whitesmoke;
+    border-radius: 15px;
+    background-color: #45a049;
+    color: white;
+    width: 250px;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.negative-sales {
+    border: 1.5px solid whitesmoke;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+    width: 250px;
+    padding: 10px 16px;
+    cursor: pointer;
 }
 
 /* Get Order Table */
