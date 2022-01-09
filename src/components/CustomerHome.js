@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import "../App.css";
-import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 const Home = () => {
@@ -13,14 +12,13 @@ const Home = () => {
         isAuth = true;
     }
 
-    if(isAuth == true)
-    {
+    if(isAuth == true) {
         var decoded = jwt_decode(token);
         var id = decoded.id;
     }
 
-    const [cart, setCart] = useState([]);
-
+    const [cart, setCart] = useState({});
+    const [cartUpdated, setCartUpdated] = useState(false);
     const [items, setItems] = useState([]);
 
     const getItems = async () => {
@@ -28,20 +26,22 @@ const Home = () => {
         setItems(res.data);
     }
 
-    const addToCart = async (itemId) => {
+    const addToCart = async (item) => {
         const getCart = await axios.get(`https://ras-api-server.herokuapp.com/api/carts/find/${id}`,
             {headers: {token: token}},
             );
-        setCart([...cart, getCart.data]);
-        console.log('after first get-cart req:');
-        console.log(cart);
-        // if cart exists
-        if(!cart) {
+        setCart(getCart.data);
+        // if cart is initially empty, create a new cart
+        if(!getCart.data) {
             const cartBody = {
                 userId: id,
                 items: [
                     {
-                        itemId: itemId
+                        itemId: item._id,
+                        title: item.title,
+                        img: item.img,
+                        quantity: 1,
+                        price: item.price
                     }
                 ]
             }
@@ -49,25 +49,42 @@ const Home = () => {
                 {headers: {token: token}}
                 );
             console.log('new cart created');
-            setCart([...cart, newCart.data])
-            console.log(newCart.data);
+            return setCart(newCart.data);
         }
-        else {
-            // construct cart body
-            const cartBody = {
-                userId: id,
-                items: [
-                    {
-                        itemId: itemId,
-                    }
-                ]
+        // if cart exists, check for the item in the cart
+        if(getCart.data) 
+        {
+            setCart(getCart.data)
+            for(let i=0; i<getCart.data.items.length; i++) {
+                // if item found, increase the quantity by 1
+                if(item._id === getCart.data.items[i].itemId) {
+                    getCart.data.items[i].quantity += 1;
+                    const updatedCart = await axios.put(`https://ras-api-server.herokuapp.com/api/carts/${getCart.data._id}`, getCart.data, 
+                    {headers: {token: token}},
+                    )
+                    console.log('cart updated');
+                    setCart(updatedCart.data)
+                    return setCartUpdated(true)
+                }
             }
-            // update request
-            const updatedCart = await axios.put(`https://ras-api-server.herokuapp.com/api/carts/${cart._id}`, cartBody, 
-                {headers: {token: token}},
-                )
-            console.log('cart updated');
-            console.log(updatedCart.data);
+            // if item not found, add it to the cart
+            if(!cartUpdated)
+            {
+                const itemObject = {
+                        itemId: item._id,
+                        title: item.title,
+                        img: item.img,
+                        quantity: 1,
+                        price: item.price
+                }
+                getCart.data.items.push(itemObject);
+                const updatedCart = await axios.put(`https://ras-api-server.herokuapp.com/api/carts/${getCart.data._id}`, getCart.data, 
+                    {headers: {token: token}},
+                    )
+                console.log('cart updated');
+                setCart(updatedCart.data)
+                return setCartUpdated(true)
+            }    
         }
     }
 
@@ -92,7 +109,7 @@ const Home = () => {
                                     <br />
                                     <h4>INR <strong>{item.price}</strong></h4><br />
                                     <div className='item-btn-container'>
-                                        <a onClick={() => addToCart(item._id)} className='item-btn-add-cart'>ADD TO CART</a>
+                                        <a onClick={() => addToCart(item)} className='item-btn-add-cart'>ADD TO CART</a>
                                     </div>
                                 </div>
                             );
