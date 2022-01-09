@@ -3,7 +3,7 @@ import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import "../App.css";
 import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Payment from './Payment';
 
 const CustomerCart = () => {
@@ -20,7 +20,7 @@ const CustomerCart = () => {
     const [genPayment, setGenPayment] = useState(false);
     const PROCEED = 'Proceed To Checkout 👉🏻';
     const BACK = 'Go Back';
-    const [checkoutBtn, setCheckOutBtn] = useState('Proceed To Checkout 👉🏻')
+    const navigate = useNavigate();
 
     const [totalAmount, setTotalAmount] = useState(50);
 
@@ -38,6 +38,40 @@ const CustomerCart = () => {
             }
             setTotalAmount(totalAmount => totalAmount + amt);
         }
+    }
+
+    const handlePlusClick = async (itemId) => {
+        for(let i=0; i<cart.items.length; i++) {
+            if(itemId === cart.items[i].itemId) {
+                cart.items[i].quantity += 1;
+                break;
+            }
+        }
+        const updatedCart = await axios.put(`https://ras-api-server.herokuapp.com/api/carts/${cart._id}`, cart, 
+            {headers: {token: token}},
+            )
+        console.log('cart updated');
+        setCart(updatedCart.data)
+        return window.location.assign('/customer/cart');  
+    }
+
+    const handleMinusClick = async (itemId) => {
+        for(let i=0; i<cart.items.length; i++) {
+            if(itemId === cart.items[i].itemId) {
+                cart.items[i].quantity -= 1;
+                if(cart.items[i].quantity === 0) {
+                    cart.items.splice(i, 1);
+                }
+                break;
+            }
+        }
+        const updatedCart = await axios.put(`https://ras-api-server.herokuapp.com/api/carts/${cart._id}`, cart, 
+            {headers: {token: token}},
+            )
+        
+        console.log('cart updated');
+        setCart(updatedCart.data)
+        return window.location.assign('/customer/cart');
     }
 
     useEffect(() => { 
@@ -76,8 +110,8 @@ const CustomerCart = () => {
                                                                 <td className='order-table-values'>
                                                                     {cartItem.quantity} <br /><br />
                                                                     <div className='cart-action-btn-container'>
-                                                                        <button className='cart-action-btn'>-</button>
-                                                                        <button className='cart-action-btn'>+</button>
+                                                                        <button className='cart-action-btn' onClick={() => handleMinusClick(cartItem.itemId)}>-</button>
+                                                                        <button className='cart-action-btn' onClick={() => handlePlusClick(cartItem.itemId)}>+</button>
                                                                     </div>
                                                                 </td>
                                                                 <td className='order-table-values'>{cartItem.price}</td>
