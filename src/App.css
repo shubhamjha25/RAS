@@ -478,3 +478,21 @@ label {
     background-color: whitesmoke;
     color: black;
 }
+
+.cart-action-btn-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cart-action-btn {
+    border: 1px solid black;
+    border-radius: 35%;
+    padding: 8px 14px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.cart-action-btn:hover {
+    background-color: black;
+    color: whitesmoke;
+}

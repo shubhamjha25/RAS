@@ -73,7 +73,13 @@ const CustomerCart = () => {
                                                             <tr>
                                                                 <td className='order-table-values'>{key+1}</td>
                                                                 <td className='order-table-values'><br /><img className='cart-img' src={cartItem.img} /> <br /> {cartItem.title} </td>
-                                                                <td className='order-table-values'>{cartItem.quantity}</td>
+                                                                <td className='order-table-values'>
+                                                                    {cartItem.quantity} <br /><br />
+                                                                    <div className='cart-action-btn-container'>
+                                                                        <button className='cart-action-btn'>-</button>
+                                                                        <button className='cart-action-btn'>+</button>
+                                                                    </div>
+                                                                </td>
                                                                 <td className='order-table-values'>{cartItem.price}</td>
                                                                 <td className='order-table-values'>{cartItem.price*cartItem.quantity}</td>
                                                             </tr>
