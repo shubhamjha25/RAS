@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import '../App.css';
 import Navbar from './Navbar';
+import SendFeedback from './SendFeedback';
 
 const CustomerOrders = () => {
 
@@ -18,6 +19,7 @@ const CustomerOrders = () => {
     {
         var decoded = jwt_decode(token);
         var id = decoded.id;
+        var username = decoded.name;
     }
     
 
@@ -42,33 +44,34 @@ const CustomerOrders = () => {
                 {
                     totalOrder
                         ?
-                            <table className='list-of-orders'>
-                                <tr>
-                                    <th className='order-table-heading'>S. No.</th>
-                                    <th className='order-table-heading'>Order Id</th>
-                                    <th className='order-table-heading'>Date</th>
-                                    <th className='order-table-heading'>Amount</th>
-                                    <th className='order-table-heading'>Status</th>
-                                </tr>
-                                {
-                                orders.map((order, key) => {
-                                    return (
-                                        <tr>
-                                            <td className='order-table-values'>{key+1}</td>
-                                            <td className='order-table-values'>{order._id}</td>
-                                            <td className='order-table-values'>{order.createdAt}</td>
-                                            <td className='order-table-values'>{order.amount}</td>
-                                            <td className='order-table-values'>{order.status}</td>
-                                        </tr>
-                                    )
-                                    
-                                })}
-                            </table>
+                            <>
+                                <table className='list-of-orders'>
+                                    <tr>
+                                        <th className='order-table-heading'>S. No.</th>
+                                        <th className='order-table-heading'>Order Id</th>
+                                        <th className='order-table-heading'>Date</th>
+                                        <th className='order-table-heading'>Amount</th>
+                                        <th className='order-table-heading'>Status</th>
+                                    </tr>
+                                    {
+                                    orders.map((order, key) => {
+                                        return (
+                                            <tr>
+                                                <td className='order-table-values'>{key+1}</td>
+                                                <td className='order-table-values'>{order._id}</td>
+                                                <td className='order-table-values'>{order.createdAt}</td>
+                                                <td className='order-table-values'>{order.amount}</td>
+                                                <td className='order-table-values'>{order.status}</td>
+                                            </tr>
+                                        )
+                                        
+                                    })}
+                                </table>
+                                <SendFeedback token={token} userId={id} username={username} />
+                            </>
                         :
                             <h2>No Orders Found</h2>
                 }
-
-                
             </div>
         </>
     );

@@ -129,6 +129,12 @@ a {
     margin-top: 25px;
 }
 
+.feedback-form {
+    border-radius: 15px;
+    padding: 10px;
+    width: 350px;
+}
+
 .log-form {
     border: 1.8px solid black;
     border-radius: 15px;
@@ -136,7 +142,7 @@ a {
     width: 350px;
 }
 
-.log-form input[type=text], input[type=email], input[type=password] {
+.log-form input[type=text], input[type=email], input[type=password], input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
