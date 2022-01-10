@@ -18,6 +18,7 @@ import CustomerOrders from './components/CustomerOrders';
 import CustomerCart from './components/CustomerCart';
 import Payment from './components/Payment';
 import OrderSuccess from './components/OrderSuccess';
+import GetFeedbacks from './components/GetFeedbacks';
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/admin/users" element={<GetUsers />} />
                 <Route path="/admin/report" element={<GenerateReport />} />
                 <Route path="/admin/orders" element={<ViewOrders />} />
+                <Route path="/admin/feedbacks" element={<GetFeedbacks />} />
                 <Route path="/admin/items" element={<ManageItems />} />
                 <Route path="/admin/items/add" element={<AddMenuItems />} />
                 <Route path="/admin/items/edit/:id" element={<EditItem />} />
