@@ -40,6 +40,18 @@ const CustomerCart = () => {
         }
     }
 
+    const deleteCart = async id => {
+        try {
+            if(token){
+                await axios.delete(`https://ras-api-server.herokuapp.com/api/carts/${id}`, {
+                    headers: {token: token}
+                });
+            }
+        } catch (error) {
+            window.location.href = "/customer/home";
+        }
+    }
+
     const handlePlusClick = async (itemId) => {
         for(let i=0; i<cart.items.length; i++) {
             if(itemId === cart.items[i].itemId) {
@@ -68,7 +80,10 @@ const CustomerCart = () => {
         const updatedCart = await axios.put(`https://ras-api-server.herokuapp.com/api/carts/${cart._id}`, cart, 
             {headers: {token: token}},
             )
-        
+        if(updatedCart.data.items.length === 0) {
+            deleteCart(updatedCart.data._id);
+            console.log('Updated Cart Deleted');
+        }
         console.log('cart updated');
         setCart(updatedCart.data)
         return window.location.assign('/customer/cart');
