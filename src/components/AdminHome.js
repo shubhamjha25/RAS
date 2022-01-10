@@ -32,7 +32,7 @@ const AdminHome = () => {
     return(
         <div className='main'>
             <br /><br/>
-            <h1>Admin Home Page</h1>
+            <h1>Admin Dashboard</h1>
             <h2>Welcome, {username}</h2>
 
             <br /><br/>
@@ -42,6 +42,7 @@ const AdminHome = () => {
                 <Link to="/admin/items"><AdminCard img="https://www.nicepng.com/png/detail/263-2632565_open-healthy-food-icon-png.png" actionName="Manage Items" /></Link>
                 <Link to="/admin/orders"><AdminCard img="https://cdn-icons-png.flaticon.com/128/3496/3496155.png" actionName="View Orders" /></Link>
                 <Link to="/admin/report"><AdminCard img="https://static.thenounproject.com/png/48895-200.png" actionName="Generate Report" /></Link>
+                <Link to="/admin/feedbacks"><AdminCard img="https://static.vecteezy.com/system/resources/thumbnails/002/238/477/small/feedback-icon-free-vector.jpg" actionName="View Feedbacks" /></Link>
             </div>
 
             <br /><br />
