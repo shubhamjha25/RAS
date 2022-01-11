@@ -24,11 +24,14 @@ const CustomerOrders = () => {
     
 
     const getOrders = async () => {
-        const res = await axios.get(`https://ras-api-server.herokuapp.com/api/orders/find/${id}`,
+        const res = await axios.get(`https://ras-api-server.herokuapp.com/api/orders/userOrder/${id}`,
             {headers: {token: token}}, 
             );
         setOrders(res.data);
-        setTotalOrder(res.data.length);
+        console.log(res.data)
+        if(res.data !== null) {
+            setTotalOrder(res.data.length);
+        }
     }
 
     useEffect(() => {
