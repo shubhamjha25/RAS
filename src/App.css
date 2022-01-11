@@ -459,6 +459,11 @@ label {
     }
   }
 
+.order-success-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 /*CART*/
 .cart-container {
     display: flex;

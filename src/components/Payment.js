@@ -29,7 +29,7 @@ const Payment = (props) => {
             amount: props.amount
         }
         const res = await axios.post('https://ras-api-server.herokuapp.com/api/orders/', orderBody, {headers: {token: props.token}});
-        console.log('NEW ORDER ID : ', res.data._id);
+        localStorage.setItem('orderId', res.data._id);
         deleteCart(props.cartId);
         navigate('../customer/orderSuccess')
     }
