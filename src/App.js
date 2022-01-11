@@ -19,6 +19,7 @@ import CustomerCart from './components/CustomerCart';
 import Payment from './components/Payment';
 import OrderSuccess from './components/OrderSuccess';
 import GetFeedbacks from './components/GetFeedbacks';
+import Page404 from './components/Page404';
 
 function App() {
     return (
@@ -41,6 +42,7 @@ function App() {
                 <Route path="/admin/items/add" element={<AddMenuItems />} />
                 <Route path="/admin/items/edit/:id" element={<EditItem />} />
                 <Route path="/authError" element={<AuthError />} />
+                <Route path="*" element={<Page404 />} />
             </Routes>
         </div>
     );
