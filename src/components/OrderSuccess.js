@@ -10,10 +10,6 @@ const OrderSuccess = () => {
 
     const orderId = localStorage.getItem('orderId')
 
-    const clearOrderId = () => {
-        return localStorage.removeItem('orderId');
-    }
-
     const getOrderSummary = async () => {
         const res = await axios.get(`https://ras-api-server.herokuapp.com/api/orders/find/${orderId}`);
         setOrderSummary(res.data);
@@ -71,7 +67,7 @@ const OrderSuccess = () => {
                                     <h3>Order Total: INR {orderSummary.amount}</h3><br /><br />
                                 </div>
                             </div>
-                            <Link to="/customer/home"><button onClick={() => clearOrderId} className='log-form-btn' style={{width: '20%'}}>BACK TO HOME</button></Link>
+                            <Link to="/customer/orders"><button onClick={() => localStorage.removeItem('orderId')} className='log-form-btn' style={{width: '20%'}}>PROCEED</button></Link>
                             </>
                         :
                             <h2>Please Place An Order</h2>
