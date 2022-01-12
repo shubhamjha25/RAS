@@ -2,11 +2,22 @@ import React from 'react';
 import '../App.css';
 import jwt_decode from "jwt-decode";
 import { Link } from 'react-router-dom';
+import {toast} from 'react-toastify';
+
+toast.configure();
 
 function Navbar() {
 
+    const notify = () => {
+        toast.warning('Logout Successful', {
+            position: 'top-right', autoClose: 3550, hideProgressBar: true, closeOnClick: false, 
+            pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+        });
+    }
+
     const logoutSubmit = () => {
         localStorage.clear();
+        notify();
     }
 
     var isAuth = false;

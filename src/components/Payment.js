@@ -4,10 +4,20 @@ import StripeCheckout from 'react-stripe-checkout';
 import Navbar from "./Navbar";
 import CustomerHome from './CustomerHome'
 import axios from "axios";
+import {toast} from 'react-toastify';
+
+toast.configure();
 
 const Payment = (props) => {
 
     const navigate = useNavigate();
+
+    const notify = (msg) => {
+        toast.success(msg, {
+            position: 'top-right', autoClose: 6550, hideProgressBar: true, closeOnClick: false, 
+            pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+        });
+    }
 
     const deleteCart = async id => {
         try {
@@ -31,6 +41,7 @@ const Payment = (props) => {
         const res = await axios.post('https://ras-api-server.herokuapp.com/api/orders/', orderBody, {headers: {token: props.token}});
         localStorage.setItem('orderId', res.data._id);
         deleteCart(props.cartId);
+        notify('Order Placed! 🥳')
         navigate('../customer/orderSuccess')
     }
 

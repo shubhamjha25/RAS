@@ -47,7 +47,7 @@ const CustomerLogin = () => {
             });
             if(res.data.isAdmin) {
                 setErr("Admin Login Has a Separate Page");
-                notify(err)
+                notify("Admin Login Has a Separate Page")
                 return;
             }
             setUser({username: '', password: ''});
