@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../App.css';
+import {toast} from 'react-toastify';
+
+toast.configure();
 
 const CustomerLogin = () => {
 
@@ -20,6 +23,21 @@ const CustomerLogin = () => {
         setErr('');
     }
 
+    const notify = (msg) => {
+        if(msg === 'Login Successful') {
+            toast.success(msg, {
+                position: 'top-right', autoClose: 3550, hideProgressBar: true, closeOnClick: false, 
+                pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+            });
+        }
+        else {
+            toast.error(msg, {
+                position: 'top-right', autoClose: 3550, hideProgressBar: true, closeOnClick: false, 
+                pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+            });
+        }
+    }
+
     const loginSubmit = async e =>{
         e.preventDefault()
         try {
@@ -29,14 +47,17 @@ const CustomerLogin = () => {
             });
             if(res.data.isAdmin) {
                 setErr("Admin Login Has a Separate Page");
+                notify(err)
                 return;
             }
             setUser({username: '', password: ''});
             localStorage.setItem('tokenStore', res.data.accessToken);
+            notify('Login Successful');
             return navigate('/customer/home');
         } catch (err) {
             console.log(err);
             setErr(err.response.data);
+            notify(err.response.data);
         }
     }
 
@@ -63,7 +84,7 @@ const CustomerLogin = () => {
                 <br />
 
                 {
-                    err ? <><p className='log-form-err'>{err}</p><br /></> : <br />
+                    // err ? <><p className='log-form-err'>{err}</p><br /></> : <br />
                 }
                 
                 <div className="container-log-btn">

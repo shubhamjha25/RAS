@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../App.css';
+import {toast} from 'react-toastify';
+
+toast.configure();
 
 const CustomerRegister = () => {
 
@@ -21,6 +24,21 @@ const CustomerRegister = () => {
         setErr('');
     }
 
+    const notify = (msg) => {
+        if(msg === 'Registration Successful') {
+            toast.success(msg, {
+                position: 'top-right', autoClose: 3550, hideProgressBar: true, closeOnClick: false, 
+                pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+            });
+        }
+        else {
+            toast.error(msg, {
+                position: 'top-right', autoClose: 3550, hideProgressBar: true, closeOnClick: false, 
+                pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+            });
+        }
+    }
+
     const registerSubmit = async e =>{
         e.preventDefault()
         try {
@@ -30,10 +48,12 @@ const CustomerRegister = () => {
                 password: user.password
             });
             setUser({username: '', email: '', password: ''});
+            notify('Registration Successful');
             return navigate('/customer/login');
         } catch (err) {
             console.log(err);
             setErr(err.response.data);
+            notify(err.response.data);
         }
     }
 
@@ -66,7 +86,7 @@ const CustomerRegister = () => {
                 <br />
 
                 {
-                    err ? <><p className='log-form-err'>{err}</p><br /></> : <br />
+                    // err ? <><p className='log-form-err'>{err}</p><br /></> : <br />
                 }
                 
                 <div className="container-log-btn">
