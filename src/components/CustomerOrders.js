@@ -48,12 +48,13 @@ const CustomerOrders = () => {
                     totalOrder
                         ?
                             <>
-                                <table className='list-of-orders'>
+                                <table className='order-table'>
                                     <tr>
                                         <th className='order-table-heading'>S. No.</th>
                                         <th className='order-table-heading'>Order Id</th>
+                                        <th className='order-table-heading'>Order Details</th>
                                         <th className='order-table-heading'>Date</th>
-                                        <th className='order-table-heading'>Amount</th>
+                                        <th className='order-table-heading'>Amount (INR)</th>
                                         <th className='order-table-heading'>Status</th>
                                     </tr>
                                     {
@@ -62,6 +63,15 @@ const CustomerOrders = () => {
                                             <tr>
                                                 <td className='order-table-values'>{key+1}</td>
                                                 <td className='order-table-values'>{order._id}</td>
+                                                <td className='order-table-values'>
+                                                    {
+                                                        order.items.map(orderItem => {
+                                                            return (
+                                                                <p>{orderItem.quantity} {orderItem.title}</p>
+                                                            )
+                                                        })
+                                                    }
+                                                </td>
                                                 <td className='order-table-values'>{order.createdAt}</td>
                                                 <td className='order-table-values'>{order.amount}</td>
                                                 <td className='order-table-values'>{order.status}</td>

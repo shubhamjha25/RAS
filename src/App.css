@@ -275,6 +275,12 @@ a {
     width: 950px;
     height: 110px;
   }
+
+.order-table {
+    border: 2px solid forestgreen;
+    width: 1150px;
+    height: 110px;
+  }
     
 .order-table-heading {
     border-bottom: 1px solid black;
