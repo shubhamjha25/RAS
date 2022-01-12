@@ -3,6 +3,9 @@ import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import "../App.css";
 import Navbar from './Navbar';
+import {toast} from 'react-toastify';
+
+toast.configure();
 
 const Home = () => {
 
@@ -20,6 +23,13 @@ const Home = () => {
     const [cart, setCart] = useState({});
     const [cartUpdated, setCartUpdated] = useState(false);
     const [items, setItems] = useState([]);
+    
+    const notify = (msg) => {
+        toast.success(msg, {
+            position: 'top-right', autoClose: 2500, hideProgressBar: true, closeOnClick: false, 
+            pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+        });
+    }
 
     const getItems = async () => {
         const res = await axios.get('https://ras-api-server.herokuapp.com/api/items');
@@ -49,6 +59,7 @@ const Home = () => {
                 {headers: {token: token}}
                 );
             console.log('new cart created');
+            notify('Item Added To Cart');
             return setCart(newCart.data);
         }
         // if cart exists, check for the item in the cart
@@ -64,6 +75,7 @@ const Home = () => {
                     )
                     console.log('cart updated');
                     setCart(updatedCart.data)
+                    notify('Item Quantity Updated');
                     return setCartUpdated(true)
                 }
             }
@@ -83,6 +95,7 @@ const Home = () => {
                     )
                 console.log('cart updated');
                 setCart(updatedCart.data)
+                notify('Item Added To Cart');
                 return setCartUpdated(true)
             }    
         }
