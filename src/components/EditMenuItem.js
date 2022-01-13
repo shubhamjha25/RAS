@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import AdminNavbar from './AdminNavbar';
 
 function EditItem({match}) {
 
@@ -66,6 +67,7 @@ function EditItem({match}) {
 
     return (
         <div className='manage-items-page'>
+            <AdminNavbar />
             <h1>Editing The Details of '{item.title}'</h1><br />
 
             <form onSubmit={editItem}>

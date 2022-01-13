@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../App.css";
+import AdminNavbar from './AdminNavbar';
 
 const GetUsers = () => {
 
@@ -36,44 +37,45 @@ const GetUsers = () => {
     }, []);
 
     return (
-        <div className='get-users-container'>
-            <h1>User Analytics</h1>
-            <br />
-            <h3>Total Number of Users Registered in the System: {totalUsers}</h3>
+            <div className='reports-page'>
+                <AdminNavbar /><br />
+                <h1>User Analytics</h1><hr />
+                <br />
+                <h3>Total Number of Users Registered in the System: {totalUsers}</h3>
 
-            <br /><br />
+                <br /><br />
 
-            <h3>List of Users</h3>
-            <table className='list-of-users'>
-                <tr>
-                    <th className='user-table-heading'>S. No.</th>
-                    <th className='user-table-heading'>Username</th>
-                    <th className='user-table-heading'>Registered On</th>
-                </tr>
+                <h3>List of Users</h3>
+                <table className='list-of-users'>
+                    <tr>
+                        <th className='user-table-heading'>S. No.</th>
+                        <th className='user-table-heading'>Username</th>
+                        <th className='user-table-heading'>Registered On</th>
+                    </tr>
+                    {
+                    users.map((user, key) => {
+                        return (
+                            <tr>
+                                <td className='user-table-values'>{key+1}</td>
+                                <td className='user-table-values'>{user.username}</td>
+                                <td className='user-table-values'>{user.createdAt}</td>
+                            </tr>
+                        )
+                        
+                    })}
+                </table>
+
+                <br /><br />
+                <h3>Monthly Data</h3>
+                <h4>Number of Users Registered On The Month of - </h4>
                 {
-                users.map((user, key) => {
-                    return (
-                        <tr>
-                            <td className='user-table-values'>{key+1}</td>
-                            <td className='user-table-values'>{user.username}</td>
-                            <td className='user-table-values'>{user.createdAt}</td>
-                        </tr>
-                    )
-                    
-                })}
-            </table>
-
-            <br /><br />
-            <h3>Monthly Data</h3>
-            <h4>Number of Users Registered On The Month of - </h4>
-            {
-                usersByMonth.map(user => {
-                    return (
-                        <p>{monthNames[user._id - 1]}: {user.total}</p>
-                    )
-                })
-            }
-        </div>       
+                    usersByMonth.map(user => {
+                        return (
+                            <p>{monthNames[user._id - 1]}: {user.total}</p>
+                        )
+                    })
+                }
+            </div>
     );
 }
 

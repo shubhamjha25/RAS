@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
+import AdminNavbar from './AdminNavbar';
 
 const GenerateReport = () => {
 
@@ -65,6 +66,7 @@ const GenerateReport = () => {
 
     return (
         <div className='reports-page'>
+            <AdminNavbar />
             <h1>Sales Report</h1><hr /><br /><br />
             <h3>Total Income Generated (Lifetime) : INR { totalIncome() }</h3><br />
             <h3>Total Number of Orders : {totalOrder}</h3><br />
@@ -75,7 +77,7 @@ const GenerateReport = () => {
                     ?
                         <p className='positive-sales'><strong>+ {parseFloat(((currentIncome-prevIncome)/prevIncome)*100).toFixed(2)} %&emsp;Sales Growth</strong></p> 
                     :
-                        <p className='negative-sales'><strong>- {parseFloat(((currentIncome-prevIncome)/prevIncome)*100).toFixed(2)} %&emsp;Sales Decline</strong></p>
+                        <p className='negative-sales'><strong>{parseFloat(((currentIncome-prevIncome)/prevIncome)*100).toFixed(2)} %&emsp;Sales Decline</strong></p>
             }
         </div>
     );

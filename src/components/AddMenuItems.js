@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AdminNavbar from './AdminNavbar';
 
 const AddMenuItems = () => {
 
@@ -48,6 +49,7 @@ const AddMenuItems = () => {
 
     return (
         <div className='manage-items-page'>
+            <AdminNavbar />
             <h1>Add Menu Item</h1><br/>
 
             <form onSubmit={addItem}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../App.css";
 import { Link } from 'react-router-dom';
+import AdminNavbar from './AdminNavbar';
 
 const ManageItems = () => {
 
@@ -37,6 +38,7 @@ const ManageItems = () => {
 
     return (
         <div className='manage-items-page'>
+            <AdminNavbar />
             <h1>Menu Items</h1><br />
             <Link to="/admin/items/add" className='add-item-link'>Click Here to Add an Item</Link><br /><br />
             <h3>Here are the available items</h3><br />

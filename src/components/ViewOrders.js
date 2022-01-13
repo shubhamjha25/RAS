@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
+import AdminNavbar from './AdminNavbar';
 
 const ViewOrders = () => {
 
@@ -26,6 +27,7 @@ const ViewOrders = () => {
 
     return (
         <div className='reports-page'>
+            <AdminNavbar />
             <h1>Orders</h1><hr /><br />
             {
                 totalOrder>0

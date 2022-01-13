@@ -33,7 +33,6 @@ const AdminHome = () => {
         <div className='main'>
             <br /><br/>
             <h1>Admin Dashboard</h1>
-            <h2>Welcome, {username}</h2>
 
             <br /><br/>
 
@@ -48,8 +47,7 @@ const AdminHome = () => {
             <br /><br />
 
             <button className="admin-logout-btn" onClick={logoutSubmit}><Link to="/">Click to Logout</Link></button>
-        </div>
-            
+        </div> 
     );
 }
 

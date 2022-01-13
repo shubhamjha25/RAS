@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
+import AdminNavbar from './AdminNavbar';
 
 const GetFeedbacks = () => {
 
@@ -34,6 +35,7 @@ const GetFeedbacks = () => {
 
     return (
         <div className='reports-page'>
+            <AdminNavbar />
             <h1>User Feedbacks</h1><hr /><br />
             
             {
