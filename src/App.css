@@ -82,6 +82,9 @@
 }
 /**/
 
+.ras-logo {
+    width: 250px;
+}
 .main {
     width: 90%;
     max-width: 768px;
@@ -98,10 +101,11 @@
 
 .main-card {
     padding: 20px;
-    border: 2px solid black;
+    border: 2px solid grey;
     border-radius: 15px;
     cursor: pointer;
     transition: transform .2s;
+    margin-right: 20px;
 }
 
 a {
@@ -114,7 +118,7 @@ a {
 }
 
 .main-card-img {
-    width: 250px;
+    width: 225px;
 }
 
 /*ADMIN LOGIN*/
