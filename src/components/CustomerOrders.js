@@ -74,7 +74,17 @@ const CustomerOrders = () => {
                                                 </td>
                                                 <td className='order-table-values'>{order.createdAt}</td>
                                                 <td className='order-table-values'>{order.amount}</td>
-                                                <td className='order-table-values'>{order.status}</td>
+                                                {
+                                                    order.status === 'pending'
+                                                        ?
+                                                            <td className='order-table-values'><strong className='pending-btn'>{order.status}</strong></td>
+                                                        :
+                                                            order.status === 'completed'
+                                                                ?
+                                                                    <td className='order-table-values'><strong className='completed-btn'>{order.status}</strong></td>
+                                                                :
+                                                                    <td className='order-table-values'><strong className='prepared-btn'>{order.status}</strong></td>
+                                                }
                                             </tr>
                                         )
                                         

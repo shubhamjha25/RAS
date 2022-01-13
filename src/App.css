@@ -533,3 +533,28 @@ label {
     background-color: black;
     color: whitesmoke;
 }
+
+/* ORDER STATUS BUTTONS */
+.completed-btn {
+    padding: 0px 25px;
+    background-color: #04AA6D;
+    color: whitesmoke;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.prepared-btn {
+    padding: 0px 25px;
+    background-color: #9B870C;
+    color: whitesmoke;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.pending-btn {
+    padding: 0px 25px;
+    background-color: red;
+    color: whitesmoke;
+    border-radius: 25px;
+    cursor: pointer;
+}
