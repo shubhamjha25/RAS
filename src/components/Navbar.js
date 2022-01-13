@@ -3,6 +3,7 @@ import '../App.css';
 import jwt_decode from "jwt-decode";
 import { Link } from 'react-router-dom';
 import {toast} from 'react-toastify';
+import LOGO from '../logo.png';
 
 toast.configure();
 
@@ -36,7 +37,7 @@ function Navbar() {
     return (
         <section className="navbar">
             <div className="logo">    
-                <Link to="/customer/home" className="ras-brand nav-link" style={{ textDecoration: 'none', color: 'black' }}>RAS</Link>
+                <Link to="/customer/home" style={{ textDecoration: 'none', color: 'black' }}><img src={LOGO} className="ras-brand" /></Link>
             </div>
             <ul className="nav-list">         
                 <>
