@@ -572,6 +572,15 @@ label {
     font-weight: 700;
 }
 
+.download-bill-btn {
+    padding: 2px 20px;
+    background-color: deepskyblue;
+    color: black;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
 .pending-btn {
     padding: 0px 25px;
     background-color: red;

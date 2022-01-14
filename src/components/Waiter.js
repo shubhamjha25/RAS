@@ -16,6 +16,14 @@ const Waiter = () => {
         localStorage.clear();
     }
 
+    const markAsCompleted = async (orderId) => {
+        const res = await axios.put(`https://ras-api-server.herokuapp.com/api/orders/statusUpdate/${orderId}`, 
+            { "status": "completed" },
+            {headers: {token: token}}
+        );
+        return window.location.reload();
+    }
+
     const getOrders = async () => {
         const res = await axios.get(`https://ras-api-server.herokuapp.com/api/orders/getOrders`,
             {headers: {token: token}}, 
@@ -50,6 +58,7 @@ const Waiter = () => {
                                         <th className='order-table-heading'>Amount (INR)</th>
                                         <th className='order-table-heading'>Status</th>
                                         <th className='order-table-heading'>Action</th>
+                                        <th className='order-table-heading'>Bill</th>
                                     </tr>
                                     {
                                     orders.map((order, key) => {
@@ -83,10 +92,11 @@ const Waiter = () => {
                                                 {
                                                     order.status === "prepared"
                                                         ?
-                                                            <td className='order-table-values'><button className='mark-as-completed-btn'>MARK AS COMPLETED</button></td>
+                                                            <td className='order-table-values'><button onClick={() => markAsCompleted(order._id)} className='mark-as-completed-btn'>MARK AS COMPLETED</button></td>
                                                         :
                                                             <td className='order-table-values'><strong>N/A</strong></td>
                                                 }
+                                                <td className='order-table-values'><button className='download-bill-btn'>PRINT BILL</button></td>
                                             </tr>
                                         )
                                         
