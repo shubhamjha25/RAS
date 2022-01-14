@@ -553,10 +553,20 @@ label {
     border-radius: 25px;
     cursor: pointer;
 }
+
 .mark-as-prepared-btn {
     padding: 2px 20px;
     background-color: #ffa700;
     color: black;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.mark-as-completed-btn {
+    padding: 2px 20px;
+    background-color: green;
+    color: whitesmoke;
     border-radius: 25px;
     cursor: pointer;
     font-weight: 700;
