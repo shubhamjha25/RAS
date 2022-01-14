@@ -50,6 +50,7 @@ const GetUsers = () => {
                     <tr>
                         <th className='user-table-heading'>S. No.</th>
                         <th className='user-table-heading'>Username</th>
+                        <th className='user-table-heading'>User Type</th>
                         <th className='user-table-heading'>Registered On</th>
                     </tr>
                     {
@@ -58,6 +59,21 @@ const GetUsers = () => {
                             <tr>
                                 <td className='user-table-values'>{key+1}</td>
                                 <td className='user-table-values'>{user.username}</td>
+                                {
+                                    user.isAdmin
+                                        ?
+                                            <td className='user-table-values'>ADMIN</td>
+                                        :
+                                            user.isStaff.state
+                                                ?
+                                                    user.isStaff.staffType === "chef"
+                                                        ?
+                                                            <td className='user-table-values'>STAFF / CHEF</td>
+                                                        :
+                                                            <td className='user-table-values'>STAFF / WAITER</td>
+                                                : 
+                                                    <td className='user-table-values'>CUSTOMER</td>
+                                }
                                 <td className='user-table-values'>{user.createdAt}</td>
                             </tr>
                         )
