@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import jwt_decode from "jwt-decode";
 
 const Waiter = () => {
 
@@ -12,16 +13,20 @@ const Waiter = () => {
     if(token)
         isAuth = true;
 
+    if(token) {
+        isAuth = true;
+        var decoded = jwt_decode(token);
+        var userId = decoded.id;
+    }
+
     const logoutSubmit = () => {
         localStorage.clear();
     }
 
-    const markAsCompleted = async (orderId) => {
-        const res = await axios.put(`https://ras-api-server.herokuapp.com/api/orders/statusUpdate/${orderId}`, 
-            { "status": "completed" },
-            {headers: {token: token}}
-        );
-        return window.location.reload();
+
+    const generateBill = async (orderId) => {
+        localStorage.setItem('orderId', orderId);
+        window.location.assign(`/staff/waiter/${userId}/bill/${orderId}`);
     }
 
     const getOrders = async () => {
@@ -92,11 +97,11 @@ const Waiter = () => {
                                                 {
                                                     order.status === "prepared"
                                                         ?
-                                                            <td className='order-table-values'><button onClick={() => markAsCompleted(order._id)} className='mark-as-completed-btn'>MARK AS COMPLETED</button></td>
+                                                            <td className='order-table-values'><button className='mark-as-completed-btn'>MARK AS COMPLETED</button></td>
                                                         :
                                                             <td className='order-table-values'><strong>N/A</strong></td>
                                                 }
-                                                <td className='order-table-values'><button className='download-bill-btn'>PRINT BILL</button></td>
+                                                <td className='order-table-values'><button onClick={() => generateBill(order._id)} className='download-bill-btn'>PRINT BILL</button></td>
                                             </tr>
                                         )
                                         

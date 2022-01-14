@@ -24,6 +24,7 @@ import Page404 from './components/Page404';
 import StaffLogin from './components/StaffLogin';
 import Chef from './components/Chef';
 import Waiter from './components/Waiter';
+import PrintBill from './components/PrintBill';
 
 function App() {
     return (
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/staff/login" element={<StaffLogin />} />
                 <Route path="/staff/chef/:id" element={<Chef />} />
                 <Route path="/staff/waiter/:id" element={<Waiter />} />
+                <Route path="/staff/waiter/:id/bill/:billId" element={<PrintBill />} />
                 <Route path="/authError" element={<AuthError />} />
                 <Route path="*" element={<Page404 />} />
             </Routes>
