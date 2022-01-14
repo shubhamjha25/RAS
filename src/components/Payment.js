@@ -4,6 +4,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import Navbar from "./Navbar";
 import CustomerHome from './CustomerHome'
 import axios from "axios";
+import LOGO from '../logo.png';
 import {toast} from 'react-toastify';
 
 toast.configure();
@@ -62,7 +63,7 @@ const Payment = (props) => {
                 </button>
                 <StripeCheckout
                     name="RAS" description="Restaurant-Automation-System" panelLabel="Pay Now"
-                    token={onToken} stripeKey={process.env.REACT_APP_STRIPE_KEY} image="https://upload.wikimedia.org/wikipedia/commons/f/f3/Logo_RAS_2016.png"
+                    token={onToken} stripeKey={process.env.REACT_APP_STRIPE_KEY} image={LOGO}
                     >
                     <button 
                         style={{border: 'none', width: 120, borderRadius: 5, padding: "20px", backgroundColor: "black", color: "white", cursor: 'pointer'}}>
