@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
-
 
 const Chef = () => {
 
@@ -14,15 +12,16 @@ const Chef = () => {
     if(token)
         isAuth = true;
 
-    if(isAuth == true)
-    {
-        var decoded = jwt_decode(token);
-        var id = decoded.id;
-        var username = decoded.name;
-    }
-
     const logoutSubmit = () => {
         localStorage.clear();
+    }
+
+    const markAsPrepared = async (orderId) => {
+        const res = await axios.put(`https://ras-api-server.herokuapp.com/api/orders/statusUpdate/${orderId}`, 
+            { "status": "prepared" },
+            {headers: {token: token}}
+        );
+        return window.location.reload();
     }
 
     const getOrders = async () => {
@@ -92,7 +91,7 @@ const Chef = () => {
                                                 {
                                                     order.status === "pending"
                                                         ?
-                                                            <td className='order-table-values'><button className='mark-as-prepared-btn'>MARK AS PREPARED</button></td>
+                                                            <td className='order-table-values'><button onClick={() => markAsPrepared(order._id)} className='mark-as-prepared-btn'>MARK AS PREPARED</button></td>
                                                         :
                                                             <td className='order-table-values'><strong>N/A</strong></td>
                                                 }
