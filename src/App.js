@@ -21,6 +21,9 @@ import Payment from './components/Payment';
 import OrderSuccess from './components/OrderSuccess';
 import GetFeedbacks from './components/GetFeedbacks';
 import Page404 from './components/Page404';
+import StaffLogin from './components/StaffLogin';
+import Chef from './components/Chef';
+import Waiter from './components/Waiter';
 
 function App() {
     return (
@@ -42,6 +45,9 @@ function App() {
                 <Route path="/admin/items" element={<ManageItems />} />
                 <Route path="/admin/items/add" element={<AddMenuItems />} />
                 <Route path="/admin/items/edit/:id" element={<EditItem />} />
+                <Route path="/staff/login" element={<StaffLogin />} />
+                <Route path="/staff/chef/:id" element={<Chef />} />
+                <Route path="/staff/waiter/:id" element={<Waiter />} />
                 <Route path="/authError" element={<AuthError />} />
                 <Route path="*" element={<Page404 />} />
             </Routes>
