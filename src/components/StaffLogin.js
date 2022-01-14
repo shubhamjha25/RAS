@@ -37,7 +37,12 @@ const StaffLogin = () => {
             }
             setUser({username: '', password: ''});
             localStorage.setItem('tokenStore', res.data.accessToken);
-            return navigate('/staff/home');
+            if(res.data.isStaff.staffType === "chef") {
+                return navigate(`/staff/chef/${res.data._id}`);
+            }
+            if(res.data.isStaff.staffType === "waiter") {
+                return navigate(`/staff/waiter/${res.data._id}`);
+            }
         } catch (err) {
             console.log(err);
             setErr(err.response.data);
