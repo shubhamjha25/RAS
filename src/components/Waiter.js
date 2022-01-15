@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
+import {toast} from 'react-toastify';
+
+toast.configure();
 
 const Waiter = () => {
 
@@ -23,12 +26,22 @@ const Waiter = () => {
         localStorage.clear();
     }
 
+    const notify = (msg) => {
+        toast.success(msg, {
+            position: 'top-right', autoClose: 6550, hideProgressBar: true, closeOnClick: false, 
+            pauseOnHover: true, draggable: false, progress: undefined, theme: 'colored'
+        });
+    }
+
     const markAsCompleted = async (orderId) => {
         const res = await axios.put(`https://ras-api-server.herokuapp.com/api/orders/statusUpdate/${orderId}`, 
             { "status": "completed" },
             {headers: {token: token}}
         );
-        return window.location.reload();
+        notify('Order Marked as Completed!');
+        setTimeout(() => {
+            window.location.reload();
+        }, 2500);
     }
 
     const generateBill = async (orderId) => {
