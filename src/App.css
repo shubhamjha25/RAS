@@ -588,3 +588,55 @@ label {
     border-radius: 25px;
     cursor: pointer;
 }
+
+/* INVOICE */
+.bill-container {
+    width: 90%;
+    padding: 15px;
+    max-width: 850px;
+    margin: 0 auto;
+    margin-top: 25px;
+    border: 2px solid gray;
+}
+
+.bill-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bill-top-left img {
+    width: 50%;
+}
+
+.bill-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bill-title {
+    text-align: center;
+}
+
+.bill-date-time {
+    text-align: center;
+    padding-bottom: 2px;
+    border-bottom: 3px dotted black;
+}
+
+.list-of-bill {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    text-align: center;
+}
+
+.bill-amount-table {
+    width: 150px;
+    float: right;
+    margin-right: 40px;
+}
+
+.bill-footer {
+    text-align: center;
+}
