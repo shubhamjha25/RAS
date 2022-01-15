@@ -4,6 +4,20 @@ import LOGO from '../logo.png';
 
 const PrintBill = () => {
 
+    const billId = localStorage.getItem('orderId');
+    const [order, setOrder] = useState({});
+
+    const getOrderDetails = async (billId) => {
+        const res = await axios.get(`https://ras-api-server.herokuapp.com/api/orders/find/${billId}`)
+        if(res.data) {
+            setOrder(res.data);
+        }
+    }
+
+    useEffect(() => {
+        getOrderDetails(billId);
+    }, [])
+
     return (
         <>
             <div className="bill-container">
