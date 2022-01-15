@@ -121,7 +121,13 @@ const Waiter = () => {
                                                         :
                                                             <td className='order-table-values'><strong>N/A</strong></td>
                                                 }
-                                                <td className='order-table-values'><button onClick={() => generateBill(order._id)} className='download-bill-btn'>PRINT BILL</button></td>
+                                                {
+                                                    order.status === "completed"
+                                                        ?
+                                                            <td className='order-table-values'><button onClick={() => generateBill(order._id)} className='download-bill-btn'>PRINT BILL</button></td>
+                                                        :
+                                                            <td className='order-table-values'><strong>N/A</strong></td>
+                                                }
                                             </tr>
                                         )
                                         
