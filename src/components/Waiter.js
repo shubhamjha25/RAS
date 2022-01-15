@@ -23,6 +23,13 @@ const Waiter = () => {
         localStorage.clear();
     }
 
+    const markAsCompleted = async (orderId) => {
+        const res = await axios.put(`https://ras-api-server.herokuapp.com/api/orders/statusUpdate/${orderId}`, 
+            { "status": "completed" },
+            {headers: {token: token}}
+        );
+        return window.location.reload();
+    }
 
     const generateBill = async (orderId) => {
         localStorage.setItem('orderId', orderId);
@@ -97,7 +104,7 @@ const Waiter = () => {
                                                 {
                                                     order.status === "prepared"
                                                         ?
-                                                            <td className='order-table-values'><button className='mark-as-completed-btn'>MARK AS COMPLETED</button></td>
+                                                            <td className='order-table-values'><button onClick={() => markAsCompleted(order._id)} className='mark-as-completed-btn'>MARK AS COMPLETED</button></td>
                                                         :
                                                             <td className='order-table-values'><strong>N/A</strong></td>
                                                 }
