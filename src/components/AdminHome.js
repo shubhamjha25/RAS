@@ -19,25 +19,19 @@ const AdminHome = () => {
     if(token)
         isAuth = true;
 
-    if(isAuth == true)
-    {
-        var decoded = jwt_decode(token);
-        var username = decoded.name;
-    }
-
     const logoutSubmit = () => {
         localStorage.removeItem('tokenStore');
     }
 
     return(
-        <div className='main'>
+        <div className='admin-main'>
             <br /><br/>
-            <h1>Admin Dashboard</h1>
+            <h1>ADMIN DASHBOARD</h1>
 
             <br /><br/>
 
             <div className='admin-cards-container'>
-                <Link to="/admin/users"><AdminCard img="https://icons-for-free.com/iconfiles/png/512/users+icon-1320186917379515742.png" actionName="Get Users" /></Link>
+                <Link to="/admin/users"><AdminCard img="https://icons-for-free.com/iconfiles/png/512/users+icon-1320186917379515742.png" actionName="User Analytics" /></Link>
                 <Link to="/admin/items"><AdminCard img="https://www.nicepng.com/png/detail/263-2632565_open-healthy-food-icon-png.png" actionName="Manage Items" /></Link>
                 <Link to="/admin/orders"><AdminCard img="https://cdn-icons-png.flaticon.com/128/3496/3496155.png" actionName="View Orders" /></Link>
                 <Link to="/admin/report"><AdminCard img="https://static.thenounproject.com/png/48895-200.png" actionName="Generate Report" /></Link>
@@ -46,7 +40,7 @@ const AdminHome = () => {
 
             <br /><br />
 
-            <button className="admin-logout-btn" onClick={logoutSubmit}><Link to="/">Click to Logout</Link></button>
+            <button className="admin-logout-btn" onClick={logoutSubmit}><Link to="/">CLICK TO LOGOUT</Link></button>
         </div> 
     );
 }

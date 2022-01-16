@@ -84,6 +84,7 @@
 .ras-logo {
     width: 250px;
 }
+
 .main {
     width: 90%;
     max-width: 768px;
@@ -180,6 +181,13 @@ a {
 }
 
 /* Admin Home Page */
+.admin-main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .admin-cards-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
