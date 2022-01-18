@@ -25,6 +25,7 @@ import StaffLogin from './components/StaffLogin';
 import Chef from './components/Chef';
 import Waiter from './components/Waiter';
 import PrintBill from './components/PrintBill';
+import AdminInvoices from './components/AdminInvoices';
 
 function App() {
     return (
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/admin/report" element={<GenerateReport />} />
                 <Route path="/admin/orders" element={<ViewOrders />} />
                 <Route path="/admin/feedbacks" element={<GetFeedbacks />} />
+                <Route path='/admin/invoices' element={<AdminInvoices />} />
                 <Route path="/admin/items" element={<ManageItems />} />
                 <Route path="/admin/items/add" element={<AddMenuItems />} />
                 <Route path="/admin/items/edit/:id" element={<EditItem />} />
