@@ -26,6 +26,7 @@ import Chef from './components/Chef';
 import Waiter from './components/Waiter';
 import PrintBill from './components/PrintBill';
 import AdminInvoices from './components/AdminInvoices';
+import AdminGenBill from './components/AdminGenBill';
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/admin/orders" element={<ViewOrders />} />
                 <Route path="/admin/feedbacks" element={<GetFeedbacks />} />
                 <Route path='/admin/invoices' element={<AdminInvoices />} />
+                <Route path='/admin/invoices/:id' element={<AdminGenBill />} />
                 <Route path="/admin/items" element={<ManageItems />} />
                 <Route path="/admin/items/add" element={<AddMenuItems />} />
                 <Route path="/admin/items/edit/:id" element={<EditItem />} />
