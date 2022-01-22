@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/RAS/static/css/main.a5808b19.chunk.css",
+    "main.js": "/RAS/static/js/main.3433bb87.chunk.js",
+    "main.js.map": "/RAS/static/js/main.3433bb87.chunk.js.map",
+    "runtime-main.js": "/RAS/static/js/runtime-main.f942e63f.js",
+    "runtime-main.js.map": "/RAS/static/js/runtime-main.f942e63f.js.map",
+    "static/css/2.f4c56af9.chunk.css": "/RAS/static/css/2.f4c56af9.chunk.css",
+    "static/js/2.7341fd6b.chunk.js": "/RAS/static/js/2.7341fd6b.chunk.js",
+    "static/js/2.7341fd6b.chunk.js.map": "/RAS/static/js/2.7341fd6b.chunk.js.map",
+    "static/js/3.541a8198.chunk.js": "/RAS/static/js/3.541a8198.chunk.js",
+    "static/js/3.541a8198.chunk.js.map": "/RAS/static/js/3.541a8198.chunk.js.map",
+    "index.html": "/RAS/index.html",
+    "static/css/2.f4c56af9.chunk.css.map": "/RAS/static/css/2.f4c56af9.chunk.css.map",
+    "static/css/main.a5808b19.chunk.css.map": "/RAS/static/css/main.a5808b19.chunk.css.map",
+    "static/js/2.7341fd6b.chunk.js.LICENSE.txt": "/RAS/static/js/2.7341fd6b.chunk.js.LICENSE.txt",
+    "static/media/logo.dca1b69a.png": "/RAS/static/media/logo.dca1b69a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f942e63f.js",
+    "static/css/2.f4c56af9.chunk.css",
+    "static/js/2.7341fd6b.chunk.js",
+    "static/css/main.a5808b19.chunk.css",
+    "static/js/main.3433bb87.chunk.js"
+  ]
+}
