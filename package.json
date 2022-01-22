@@ -41,5 +41,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://ras-api-server.herokuapp.com/"
+  "proxy": "https://ras-api-server.herokuapp.com/",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
 }
