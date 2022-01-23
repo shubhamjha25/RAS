@@ -6,7 +6,6 @@ import CustomerPage from './components/CustomerPage';
 import AdminPage from './components/AdminPage';
 import CustomerHome from './components/CustomerHome';
 import AdminHome from './components/AdminHome';
-import AuthError from './components/AuthError';
 import GetUsers from './components/GetUsers';
 import GenerateReport from './components/GenerateReport';
 import ViewOrders from './components/ViewOrders';
@@ -54,7 +53,6 @@ function App() {
                 <Route path="/staff/chef/:id" element={<Chef />} />
                 <Route path="/staff/waiter/:id" element={<Waiter />} />
                 <Route path="/staff/waiter/:id/bill/:billId" element={<PrintBill />} />
-                <Route path="/authError" element={<AuthError />} />
                 <Route path="*" element={<Page404 />} />
             </Routes>
         </div>
