@@ -22,7 +22,7 @@ const AdminInvoices = () => {
 
     const generateInvoice = async (orderId) => {
         localStorage.setItem('orderId', orderId);
-        window.location.assign(`/admin/invoices/${orderId}`);
+        window.location.assign(`../admin/invoices/${orderId}`);
     }
 
     useEffect(() => {

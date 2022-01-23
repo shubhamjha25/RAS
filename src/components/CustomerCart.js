@@ -48,7 +48,7 @@ const CustomerCart = () => {
                 });
             }
         } catch (error) {
-            window.location.href = "/customer/home";
+            window.location.href = "../customer/home";
         }
     }
 
@@ -64,7 +64,7 @@ const CustomerCart = () => {
             )
         console.log('cart updated');
         setCart(updatedCart.data)
-        return window.location.assign('/customer/cart');  
+        return window.location.assign('../customer/cart');  
     }
 
     const handleMinusClick = async (itemId) => {
@@ -86,7 +86,7 @@ const CustomerCart = () => {
         }
         console.log('cart updated');
         setCart(updatedCart.data)
-        return window.location.assign('/customer/cart');
+        return window.location.assign('../customer/cart');
     }
 
     useEffect(() => { 

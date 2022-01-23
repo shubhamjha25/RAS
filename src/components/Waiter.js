@@ -46,7 +46,7 @@ const Waiter = () => {
 
     const generateBill = async (orderId) => {
         localStorage.setItem('orderId', orderId);
-        window.location.assign(`/staff/waiter/${userId}/bill/${orderId}`);
+        window.location.assign(`../waiter/${userId}/bill/${orderId}`);
     }
 
     const getOrders = async () => {
