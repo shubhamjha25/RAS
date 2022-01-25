@@ -1,5 +1,6 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import AuthError from './components/AuthError';
 
 const PrivateRoute = () => {
 
@@ -10,7 +11,7 @@ const PrivateRoute = () => {
             ? 
                 <Outlet />       
             : 
-                <Navigate to={{ pathname: '/authError' }} />    
+                <AuthError />    
     )
     
 }
