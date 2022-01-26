@@ -43,7 +43,7 @@ const Payment = (props) => {
         localStorage.setItem('orderId', res.data._id);
         deleteCart(props.cartId);
         notify('Order Placed! 🥳')
-        navigate('../customer/orderSuccess')
+        navigate('/customer/orderSuccess')
     }
 
     const onToken = (token) => {
