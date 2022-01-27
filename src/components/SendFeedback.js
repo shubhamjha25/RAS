@@ -36,7 +36,7 @@ const SendFeedback = (props) => {
                 );
             setFeedbackBody({message: '', rating: ''});
             notify();
-            return navigate('../customer/orders')
+            return navigate('/customer/orders')
         } catch (err) {
             console.log(err.response.data.message);
         }
