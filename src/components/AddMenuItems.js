@@ -38,7 +38,7 @@ const AddMenuItems = () => {
                     headers: {token: token}
                 });
                 
-                return navigate('../admin/items');
+                return navigate('/admin/items');
             }
         } catch (err) {
             console.log(err.response.data);
