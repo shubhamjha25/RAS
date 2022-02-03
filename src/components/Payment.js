@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import StripeCheckout from 'react-stripe-checkout';
-import Navbar from "./Navbar";
-import CustomerHome from './CustomerHome'
 import axios from "axios";
 import LOGO from '../logo.png';
 import {toast} from 'react-toastify';
